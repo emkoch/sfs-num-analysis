@@ -1,1 +1,4 @@
+# temp files created by emacs
 *~
+# generally submit scripts that only need to live on pps
+*.sh
