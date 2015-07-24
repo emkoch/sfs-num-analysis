@@ -5,7 +5,7 @@ Individual runs can be performed using
 
 ```
 Rscript run_solution_single.r 
-`` 
+```
 
 The necessary arguments are described in the comments to run_solution_single.r. All 
 time parameters are given in coalescent units according to the initial population 
