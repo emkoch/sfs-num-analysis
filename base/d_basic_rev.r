@@ -1,4 +1,3 @@
-source("rho.r")
 d_basic_rev <- function(G.current, G.0bound, G.Nupbound, x, d.t, d.x.0, d.x.N, S, t.curr,
                         use.upwind=TRUE, rho){
     l <- length(G.current)

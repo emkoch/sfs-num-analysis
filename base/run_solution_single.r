@@ -41,7 +41,25 @@
 ## 12) [FILENAME] Specifies an R script creating a function make.S.traj(S).
 ##     This function should return a function specifying S for all t.
 
-source("basic_rev_fun.r");
+#!/usr/bin/env Rscript
+
+## Taken from
+## http://stackoverflow.com/questions/1815606/rscript-determine-path-of-the-executing-script
+thisFile <- function() {
+    cmdArgs <- commandArgs(trailingOnly = FALSE)
+    needle <- "--file="
+    match <- grep(needle, cmdArgs)
+    if (length(match) > 0) {
+                                        # Rscript
+        return(normalizePath(sub(needle, "", cmdArgs[match])))
+    } else {
+                                        # 'source'd via R console
+        return(normalizePath(sys.frames()[[1]]$ofile))
+    }
+}
+
+script.dir <- dirname(thisFile())
+source(paste(script.dir,"basic_rev_fun.r",sep="/"));
 
 args <- commandArgs(TRUE);
 ## Read arguments in the order they appear in the run_solution function
